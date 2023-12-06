@@ -4,11 +4,7 @@
 
 Node* LinkedList::insertAfter(Node* node, int value){
         Node* newNode = new Node(value);
-        nodeCount++;
-        if (this->head == nullptr) {
-            this->head = newNode;
-            return newNode;
-        }
+        this->nodeCount++;
 
         Node* current = this->head;
         while (current != nullptr) {

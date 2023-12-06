@@ -3,6 +3,10 @@
 #include "doubleList.h"
 
     Node* DoubleLinkedList::insertAfter(Node* node, int value) {
+        Node* newNode = new Node(value);
+        newNode->prevNode = node;
+        newNode->nextNode = node->nextNode;
+
         if (node == nullptr) {
             Node* newNode = new Node(value);
             firstNode = newNode;
@@ -10,9 +14,7 @@
             return newNode;
         }
 
-        Node* newNode = new Node(value);
-        newNode->prevNode = node;
-        newNode->nextNode = node->nextNode;
+        
 
         if (node->nextNode != nullptr) {
             node->nextNode->prevNode = newNode;

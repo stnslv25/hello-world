@@ -2,14 +2,14 @@ struct Node {
     int data;
     Node* nextNode;
 
-    Node(int value) : data(value), nextNode(nullptr) {}
+    inline Node(int value) : data(value), nextNode(nullptr) {}
 };
 
 struct FindNodeResult {
     Node* previousNode;
     Node* foundNode;
 
-    FindNodeResult(Node* prev, Node* found) : previousNode(prev), foundNode(found) {}
+    inline FindNodeResult(Node* prev, Node* found) : previousNode(prev), foundNode(found) {}
 };
 
 class LinkedList {
@@ -18,7 +18,7 @@ class LinkedList {
         int nodeCount;
 
     public:
-        LinkedList() : head(nullptr) {}
+        inline LinkedList() : head(nullptr) {}
 
         Node* insertAfter(Node* node, int value);
         FindNodeResult find(int value);

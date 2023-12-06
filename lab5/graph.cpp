@@ -6,14 +6,17 @@
         nodes[value] = newNode;
     }
 
-    void Graph::addEdge(int fromValue, int toValue) {
-        if (nodes.find(fromValue) == nodes.end() || nodes.find(toValue) == nodes.end()) {
+    bool Graph::addEdge(int fromValue, int toValue) {
+        auto fromNodePair = nodes.find(fromValue);
+        auto toNodePair = nodes.find(toValue);
+        
+        if (fromNodePair == nodes.end() || toNodePair == nodes.end()) {
             std::cout << "Node not found!" << std::endl;
-            return;
+            return false;
         }
 
-        Node* fromNode = nodes[fromValue];
-        Node* toNode = nodes[toValue];
+        Node* fromNode = fromNodePair->second;
+        Node* toNode = toNodePair->second;
 
         fromNode->neighbors.push_back(toNode);
     }
@@ -21,7 +24,7 @@
     int Graph::sumOfNeighbors(int nodeValue) {
         if (nodes.find(nodeValue) == nodes.end()) {
             std::cout << "Node not found!" << std::endl;
-            return 0;
+            return -1;
         }
 
         int sum = 0;

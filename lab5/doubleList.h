@@ -6,14 +6,14 @@ struct Node {
     Node* prevNode;
     Node* nextNode;
 
-    Node(int value) : data(value), prevNode(nullptr), nextNode(nullptr) {}
+    inline Node(int value) : data(value), prevNode(nullptr), nextNode(nullptr) {}
 };
 
 class DoubleLinkedList {
     Node* firstNode;
     Node* lastNode;
 
-    DoubleLinkedList() : firstNode(nullptr), lastNode(nullptr) {}
+    inline DoubleLinkedList() : firstNode(nullptr), lastNode(nullptr) {}
 
     Node* insertAfter(Node* node, int value);
     Node* insertBefore(Node* node, int value);

@@ -5,18 +5,18 @@ struct Node {
     int data;
     Node* nextNode;
 
-    Node(int value) : data(value), nextNode(nullptr) {}
+    inline Node(int value) : data(value), nextNode(nullptr) {}
 };
 
 class Queue {
     Node* firstNode;
     Node* lastNode;
 
-    Queue() : firstNode(nullptr), lastNode(nullptr) {}
+    inline Queue() : firstNode(nullptr), lastNode(nullptr) {}
 
     void enqueue(int value);
     int dequeue();
-    bool isEmpty() const {
+    inline bool isEmpty() const {
         return (firstNode == nullptr);
     }
     ~Queue();
